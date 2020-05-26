@@ -14,7 +14,7 @@ services:
       TZ: 'Europe/Paris'
     networks:
       cyber:
-        ipv4_address: 10.0.0.98
+        ipv4_address: 10.98.0.98
   pihole:
     container_name: pihole
     image: pihole/pihole:latest
@@ -33,7 +33,7 @@ services:
       - 1.1.1.1
     networks:
       cyber:
-        ipv4_address: 10.0.0.99
+        ipv4_address: 10.98.0.99
       # Recommended but not required (DHCP needs NET_ADMIN)
     #   https://github.com/pi-hole/docker-pi-hole#note-on-capabilities
     cap_add:
@@ -70,4 +70,4 @@ networks:
     ipam:
       driver: default
       config:
-        - subnet: "10.0.0.0/24"
+        - subnet: "10.98.0.0/24"
