@@ -38,6 +38,8 @@ services:
     #   https://github.com/pi-hole/docker-pi-hole#note-on-capabilities
     cap_add:
       - NET_ADMIN
+    depends_on:
+      - nextdns
     restart: unless-stopped
   wireguard:
     image: linuxserver/wireguard
@@ -62,6 +64,8 @@ services:
     sysctls:
       - net.ipv4.conf.all.src_valid_mark=1
     restart: unless-stopped
+    depends_on:
+      - pihole
     networks:
       cyber:
     #   ipv4_address: 10.0.0.1
