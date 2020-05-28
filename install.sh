@@ -18,5 +18,19 @@ sudo apt install -y docker-compose &&
 sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/bin/docker-compose &&
 sudo chmod +x /usr/bin/docker-compose
 
-sudo systemctl status docker
+sudo apt-install apt-utils
+
+sudo apt update && sudo apt upgrade -y
+
+git clone https://github.com/darksip/docker-wireguard.git
+
+cd docker-wireguard
+
+sudo docker-compose up --no-start
+
+sudo reboot
+
+
+
+#sudo systemctl status docker
 
