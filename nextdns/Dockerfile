@@ -7,7 +7,7 @@ ENV NEXTDNS_VERSION=1.4.35 \
 ENV NEXTDNS_ARGUMENTS="-listen :8053 -report-client-info -log-queries"
 ENV UID 1000
 ENV GID 1000
-ENV TIMEZONE UTC
+ENV TIMEZONE 'Europe/Paris'
 
 RUN apt-get update \
   && apt-get install -y curl libcap2-bin ldnsutils
