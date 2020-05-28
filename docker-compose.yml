@@ -21,6 +21,7 @@ services:
       timeout: 20s
       retries: 3
       start_period: 5s
+    restart: unless-stopped
   pihole:
     container_name: pihole
     image: pihole/pihole:latest
