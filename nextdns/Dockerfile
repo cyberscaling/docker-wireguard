@@ -10,7 +10,7 @@ ENV GID 1000
 ENV TIMEZONE UTC
 
 RUN apt-get update \
-  && apt-get install -y curl libcap2-bin
+  && apt-get install -y curl libcap2-bin ldnsutils
 
 RUN mkdir /tmp/nextdns \
     && curl -fsSL https://github.com/nextdns/nextdns/releases/download/v${NEXTDNS_VERSION}/nextdns_${NEXTDNS_VERSION}_linux_amd64.tar.gz -o /tmp/nextdns/nextdns.tar.gz \
