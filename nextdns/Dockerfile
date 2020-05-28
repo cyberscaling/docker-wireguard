@@ -29,7 +29,7 @@ RUN mkdir /tmp/nextdns \
 
 EXPOSE 8053/tcp 8053/udp
 
-USER nextdns
+#USER nextdns
 
 ADD ./run.sh /nextdns/run.sh
 
