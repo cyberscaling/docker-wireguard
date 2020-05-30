@@ -2,7 +2,7 @@
 
 sudo apt update &&
 sudo DEBIAN_FRONTEND=noninteractive apt-get -y -o DPkg::options::="--force-confdef" -o DPkg::options::="--force-confold" upgrade &&
-sudo apt install ldnsutils -y  &&
+sudo apt install ldnsutils git -y  &&
 sudo unlink /etc/localtime &&
 sudo ln -s /usr/share/zoneinfo/Europe/Paris /etc/localtime &&
 sudo timedatectl
