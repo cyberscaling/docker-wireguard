@@ -11,7 +11,7 @@ services:
       context: ./nextdns
     environment:
       NEXTDNS_ID: 'cfaa54'
-      NEXTDNS_ARGUMENTS: '-listen :8053 -report-client-info -hardened-privacy -cache-max-age 86400s -cache-size 10MB -use-hosts -bogus-priv -timeout 5s -max-ttl 600s'
+      NEXTDNS_ARGUMENTS: '-listen :8053 -report-client-info -cache-max-age 86400s -cache-size 10MB -use-hosts -bogus-priv -timeout 5s -max-ttl 600s'
       TZ: 'Europe/Paris'
     networks:
       cyber:
@@ -60,10 +60,10 @@ services:
       - PGID=1000
       - TZ=Europe/Paris
       #- SERVERURL=wireguard.domain.com #optional
-      - SERVERPORT=51820 #optional
-      - PEERS=1 #optional
-      - PEERDNS=auto #optional
-      - INTERNAL_SUBNET=10.13.13.0 #optional
+      #- SERVERPORT=51820 #optional
+      #- PEERS=1 #optional
+      #- PEERDNS=auto #optional
+      #- INTERNAL_SUBNET=10.13.13.0 #optional
     volumes:
       - ./config:/config
       - /lib/modules:/lib/modules
