@@ -11,7 +11,7 @@ services:
       context: ./nextdns
     environment:
       NEXTDNS_ID: 'cfaa54'
-      NEXTDNS_ARGUMENTS: '-listen :8053 -report-client-info -log-queries'
+      NEXTDNS_ARGUMENTS: '-listen :8053 -report-client-info -hardened-privacy -cache-max-age 86400s -use-hosts -auto-activate -cache-size 10MB -bocus-priv -timeout 5s'
       TZ: 'Europe/Paris'
     networks:
       cyber:
