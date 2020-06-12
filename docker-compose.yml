@@ -23,32 +23,32 @@ services:
       retries: 3
       start_period: 5s
     restart: unless-stopped
-  pihole:
-    container_name: pihole
-    image: pihole/pihole:latest
-    ports:
-      - "80:80/tcp"
-      - "443:443/tcp"
-    environment:
-      TZ: 'Europe/Paris'
-      WEBPASSWORD: 'pouet'
-    # Volumes store your data between container upgrades
-    volumes:
-      - './etc-pihole/:/etc/pihole/'
-      - './etc-dnsmasq.d/:/etc/dnsmasq.d/'
-    dns:
-      - 127.0.0.1
-      - 1.1.1.1
-    networks:
-      cyber:
-        ipv4_address: 10.98.0.99
-      # Recommended but not required (DHCP needs NET_ADMIN)
-    #   https://github.com/pi-hole/docker-pi-hole#note-on-capabilities
-    cap_add:
-      - NET_ADMIN
-    depends_on:
-      - nextdns
-    restart: unless-stopped
+  # pihole:
+  #   container_name: pihole
+  #   image: pihole/pihole:latest
+  #   ports:
+  #     - "80:80/tcp"
+  #     - "443:443/tcp"
+  #   environment:
+  #     TZ: 'Europe/Paris'
+  #     WEBPASSWORD: 'pouet'
+  #   # Volumes store your data between container upgrades
+  #   volumes:
+  #     - './etc-pihole/:/etc/pihole/'
+  #     - './etc-dnsmasq.d/:/etc/dnsmasq.d/'
+  #   dns:
+  #     - 127.0.0.1
+  #     - 1.1.1.1
+  #   networks:
+  #     cyber:
+  #       ipv4_address: 10.98.0.99
+  #     # Recommended but not required (DHCP needs NET_ADMIN)
+  #   #   https://github.com/pi-hole/docker-pi-hole#note-on-capabilities
+  #   cap_add:
+  #     - NET_ADMIN
+  #   depends_on:
+  #     - nextdns
+  #   restart: unless-stopped
   wireguard:
     image: linuxserver/wireguard
     container_name: wireguard
@@ -64,6 +64,7 @@ services:
       #- PEERS=1 #optional
       #- PEERDNS=auto #optional
       #- INTERNAL_SUBNET=10.13.13.0 #optional
+      #
     volumes:
       - ./config:/config
       - /lib/modules:/lib/modules
@@ -73,7 +74,8 @@ services:
       - net.ipv4.conf.all.src_valid_mark=1
     restart: unless-stopped
     depends_on:
-      - pihole
+      - nextdns
+      # - pihole
     networks:
       cyber:
     #   ipv4_address: 10.0.0.1
