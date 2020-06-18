@@ -18,7 +18,7 @@ sudo apt install -y docker-compose &&
 sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-compose-$(uname -s)-$(uname -m)" -o /usr/bin/docker-compose &&
 sudo chmod +x /usr/bin/docker-compose
 
-sudo apt-install apt-utils
+sudo apt install apt-utils
 
 sudo apt update && sudo apt upgrade -y
 
