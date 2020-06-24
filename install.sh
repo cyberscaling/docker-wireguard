@@ -19,10 +19,7 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.25.5/docker-
 sudo chmod +x /usr/bin/docker-compose
 
 sudo apt install apt-utils
-
 sudo apt update && sudo apt upgrade -y
-
-git clone https://github.com/darksip/docker-wireguard.git
 
 cd docker-wireguard
 
