@@ -13,7 +13,11 @@ apt install -y apt-transport-https ca-certificates curl gnupg2 software-properti
 curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
 
 add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
+
+echo "deb http://deb.debian.org/debian/ buster-backports main" > /etc/apt/sources.list.d/buster-backports.list
+
 apt update && apt upgrade -y
+
 reboot
 
 #systemctl status docker
