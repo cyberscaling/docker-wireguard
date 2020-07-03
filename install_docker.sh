@@ -6,8 +6,7 @@ chmod +x /usr/bin/docker-compose
 apt install apt-utils
 apt update && apt upgrade -y
 
-KVER=`uname -r` && \
-apt-get install -y linux-headers-$KVER && \
+apt-get install -y linux-headers-$(uname -r) && \
 apt-get install -y --no-install-recommends wireguard-dkms bc
 
 docker-compose up --no-start
