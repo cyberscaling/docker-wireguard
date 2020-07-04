@@ -5,19 +5,19 @@ services:
   nextdns:
     container_name: nextdns
     ports:
-      - 53:53/udp
-      - 53:53/tcp
+      - 8053:8053/udp
+      - 8053:8053/tcp
     build:
       context: ./nextdns
     environment:
       NEXTDNS_ID: 'cfaa54'
-      NEXTDNS_ARGUMENTS: '-listen :53 -report-client-info -cache-max-age 86400s -cache-size 10MB -use-hosts -bogus-priv -timeout 5s -max-ttl 600s'
+      NEXTDNS_ARGUMENTS: '-listen :8053 -report-client-info -cache-max-age 86400s -cache-size 10MB -use-hosts -bogus-priv -timeout 5s -max-ttl 600s'
       TZ: 'Europe/Paris'
     networks:
       cyber:
         ipv4_address: 10.98.0.98
     healthcheck:
-      test: ["CMD", "drill", "-p", "53", "cloudflare.com", "@10.98.0.98", "||", "exit", "1"]
+      test: ["CMD", "drill", "-p", "8053", "cloudflare.com", "@10.98.0.98", "||", "exit", "1"]
       interval: 20s
       timeout: 20s
       retries: 3
@@ -51,4 +51,4 @@ networks:
     ipam:
       driver: default
       config:
-        - subnet: "10.98.0.0/24"
+        - subnet: "10.98.0.0/16"
