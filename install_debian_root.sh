@@ -3,7 +3,7 @@ DEBIAN_FRONTEND=noninteractive
 # try upgrade kernel before
 apt update
 apt-get -y -o DPkg::options::="--force-confdef" -o DPkg::options::="--force-confold" upgrade &&
-apt install ldnsutils git -y  &&
+apt install ldnsutils -y  &&
 unlink /etc/localtime &&
 ln -s /usr/share/zoneinfo/Europe/Paris /etc/localtime &&
 timedatectl
