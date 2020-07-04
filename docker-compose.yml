@@ -17,7 +17,7 @@ services:
       cyber:
         ipv4_address: 10.98.0.98
     healthcheck:
-      test: ["CMD", "drill", "-p", "8053", "cloudflare.com", "@10.98.0.98", "||", "exit", "1"]
+      test: ["CMD", "drill", "-p", "53", "cloudflare.com", "@10.98.0.98", "||", "exit", "1"]
       interval: 20s
       timeout: 20s
       retries: 3
