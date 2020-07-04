@@ -35,7 +35,7 @@ services:
       - PGID=1000
       - TZ=Europe/Paris
     volumes:
-      - ./config:/etc/config
+      - ./config:/etc/wireguard
       - /lib/modules:/lib/modules
     ports:
       - 51820:51820/udp
