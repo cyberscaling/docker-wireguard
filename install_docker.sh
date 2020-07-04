@@ -6,11 +6,6 @@ chmod +x /usr/bin/docker-compose
 apt install apt-utils
 apt update && apt upgrade -y
 
-#apt-get install -y linux-headers-$(uname -r) && \
-#apt-get install -y --no-install-recommends wireguard-dkms bc
-
 docker run -it --rm --cap-add sys_module -v /lib/modules:/lib/modules cmulk/wireguard-docker:buster install-module
 
-docker-compose up --no-start
-
-#reboot
+docker-compose up -d
