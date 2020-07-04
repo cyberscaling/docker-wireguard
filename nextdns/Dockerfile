@@ -28,7 +28,7 @@ RUN mkdir /tmp/nextdns \
     && rm -rf /var/lib/apt/lists/*
 
 EXPOSE 8053/tcp 8053/udp
-
+EXPOSE 53/tcp 53/udp
 #USER nextdns
 
 ADD ./run.sh /nextdns/run.sh
