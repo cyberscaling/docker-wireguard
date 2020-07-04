@@ -5,13 +5,13 @@ services:
   nextdns:
     container_name: nextdns
     ports:
-      - 8053:8053/udp
-      - 8053:8053/tcp
+      - 8053:53/udp
+      - 8053:53/tcp
     build:
       context: ./nextdns
     environment:
       NEXTDNS_ID: 'cfaa54'
-      NEXTDNS_ARGUMENTS: '-listen :8053 -report-client-info -cache-max-age 86400s -cache-size 10MB -use-hosts -bogus-priv -timeout 5s -max-ttl 600s'
+      NEXTDNS_ARGUMENTS: '-listen :53 -report-client-info -cache-max-age 86400s -cache-size 10MB -use-hosts -bogus-priv -timeout 5s -max-ttl 600s'
       TZ: 'Europe/Paris'
     networks:
       cyber:
