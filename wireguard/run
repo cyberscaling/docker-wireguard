@@ -2,7 +2,7 @@
 
 ## The below is modified from https://github.com/activeeos/wireguard-docker
 
-bash /etc/services.d/coredns/run &
+exec /app/coredns -conf /etc/wireguard/coredns/Corfile &
 
 # Find a Wireguard interface
 interfaces=`find /etc/wireguard -type f`
