@@ -11,6 +11,7 @@ RUN apt-get update && \
  apt-get clean
 
 RUN apt-get install -y \
+    bc \
     curl \
     git \
     gnupg \
@@ -40,10 +41,6 @@ RUN echo "**** install CoreDNS ****" && \
 	/tmp/* \
 	/var/lib/apt/lists/* \
 	/var/tmp/*
-
-RUN KVER=`uname -r` && \
- apt-get install -y linux-headers-$KVER && \
- apt-get install -y --no-install-recommends wireguard-dkms bc
 
 # Add main work dir to PATH
 WORKDIR /scripts
