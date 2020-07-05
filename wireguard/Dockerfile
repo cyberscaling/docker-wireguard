@@ -24,8 +24,9 @@ RUN apt-get install -y \
  apt-get install -y --no-install-recommends \
 	resolvconf
 
+RUN mkdir /app 
+
 RUN echo "**** install CoreDNS ****" && \
-    mkdir /app && \
  COREDNS_VERSION=$(curl -sX GET "https://api.github.com/repos/coredns/coredns/releases/latest" \
 	| awk '/tag_name/{print $4;exit}' FS='[""]' | awk '{print substr($1,2); }') && \
  curl -o \
