@@ -20,11 +20,12 @@ RUN apt-get install -y \
     libelf-dev \
     pkg-config \
     qrencode && \    
-    ldnsutils && \
     echo resolvconf resolvconf/linkify-resolvconf boolean false | debconf-set-selections && \
  echo "REPORT_ABSENT_SYMLINK=no" >> /etc/default/resolvconf && \
  apt-get install -y --no-install-recommends \
 	resolvconf
+
+RUN apt-get update && apt-get install -y ldnsutils
 
 RUN mkdir /app 
 
@@ -60,8 +61,6 @@ RUN chmod 755 /scripts/*
 VOLUME /etc/wireguard
 
 COPY wg0.conf /etc/wireguard
-# add local files
-COPY /root /
 
 # Normal behavior is just to run wireguard with existing configs
 CMD ["run"]
