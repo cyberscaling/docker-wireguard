@@ -1,6 +1,0 @@
-#!/usr/bin/with-contenv bash
-
-cd /config/coredns
-
-exec \
-    /app/coredns -dns.port=53
