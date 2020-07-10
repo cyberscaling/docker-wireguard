@@ -54,6 +54,7 @@ ENV IPTABLES_MASQ=1
 # Copy scripts to containers
 #COPY install-module /scripts
 COPY run /scripts
+COPY health /scripts
 COPY genkeys /scripts
 RUN chmod 755 /scripts/*
 
