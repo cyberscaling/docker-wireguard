@@ -47,7 +47,7 @@ services:
     networks:
       cyber:
     healthcheck:
-      test: ["CMD", "drill", "-p", "53", "cloudflare.com", "@127.0.0.1", "||", "exit", "1"]
+      test: ["CMD", "bash", "./health.sh"]
       interval: 20s
       timeout: 20s
       retries: 3
