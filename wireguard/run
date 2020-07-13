@@ -38,14 +38,14 @@ finish () {
 
 syncconfwg0() {
     wg syncconf wg0 <(wg-quick strip wg0)
-    echo "$(date): sync" >> ./sync.log
+    echo "$(date): sync" >> /etc/wireguard/sync.log
     exit 0
 }
 
 trap finish SIGTERM SIGINT SIGQUIT
 
 while true; do
-    [ /etc/wireguard/wg0.conf -nt ./sync.log ] && syncconfwg0    
+    [ /etc/wireguard/wg0.conf -nt /etc/wireguard/sync.log ] && syncconfwg0    
     sleep 15
 done &
 wait $!
