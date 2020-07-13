@@ -5,7 +5,7 @@
 /app/coredns -conf /etc/wireguard/coredns/Corefile &
 
 # Find a Wireguard interface
-interfaces=`find /etc/wireguard -type f`
+interfaces=`find /etc/wireguard -type f | grep .conf`
 if [[ -z $interfaces ]]; then
     echo "$(date): Interface not found in /etc/wireguard" >&2
     exit 1
