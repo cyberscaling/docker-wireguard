@@ -47,11 +47,11 @@ services:
     networks:
       cyber:
     healthcheck:
-      test: ["CMD", "bash", "./health"]
-      interval: 20s
-      timeout: 20s
+      test: ["CMD", "bash", "./health", "||", "exit", "1"]
+      interval: 10s
+      timeout: 10s
       retries: 3
-      start_period: 5s
+      start_period: 15s
 networks:
   cyber:
     ipam:

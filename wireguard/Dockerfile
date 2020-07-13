@@ -62,7 +62,7 @@ RUN chmod 755 /scripts/*
 VOLUME /etc/wireguard
 
 COPY wg0.conf /etc/wireguard
-
+RUN chmod 640 /etc/wireguard/wg0.conf
 # Normal behavior is just to run wireguard with existing configs
 CMD ["run"]
 
